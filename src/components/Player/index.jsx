@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import Controls from "./components/Controls"
+import Controls from "./components/Controls";
+import style from './style.module.scss';
 
 const Player = () => {
   const [videoWidth, setVideoWidth] = useState('40%')
@@ -9,8 +10,8 @@ const Player = () => {
   const setTheaterMode = () => setVideoWidth(videoWidth === '40%' ? '100%': '40%')
 
   return (
-    <> 
-      <video ref={video} width={videoWidth}>
+    <div className={style.player}> 
+      <video ref={video} width='100%'>
         <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4' />
         <source id='webm' src="http://media.w3.org/2010/05/sintel/trailer.webm" type='video/webm' />
         <source id='ogv' src="http://media.w3.org/2010/05/sintel/trailer.ogv" type='video/ogg' />
@@ -21,7 +22,7 @@ const Player = () => {
         video={video}
         setTheaterMode={setTheaterMode}
       />
-    </>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
-import { SET_VALUE } from "./actionCreators";
+import { SET_PLAYER_LIST } from "./actionCreators";
 
-export const setValue = (payload) => ({
-  type: SET_VALUE,
+export const setPlayerList = (payload) => ({
+  type: SET_PLAYER_LIST,
   payload,
 })

@@ -1,1 +1,1 @@
-export const SET_VALUE = 'SET_VALUE';
+export const SET_PLAYER_LIST = 'SET_PLAYER_LIST';

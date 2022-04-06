@@ -1,13 +1,13 @@
-import { SET_VALUE } from "./actionCreators";
+import { SET_PLAYER_LIST } from "./actionCreators";
 
 const initialState = {
-  value: 10,
+  playerList: [],
 }
 
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
-      case SET_VALUE: return { ...state, value: action.payload }
-      default: return state;
+    case SET_PLAYER_LIST: return { ...state, playerList: action.payload }
+    default: return state;
   }
 }
 

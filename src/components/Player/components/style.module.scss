@@ -1,0 +1,34 @@
+.controls {
+  display: flex;
+  justify-content: end;
+  background: rgba(255, 255, 255, .05);
+  position: relative;
+  margin-top: -40px;
+  opacity: 0.3;
+  padding: 5px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .play {
+    margin-right: auto;
+    margin-left: 20px;
+  }
+
+  .theaterMode {
+    margin-right: 20px;
+    margin-left: 5px;
+  }
+
+  .icon {
+    opacity: .35;
+    cursor: pointer;
+    padding: 3px;
+
+    &:hover {
+      background-color: rgba(#aaa, 0.5);
+      border-radius: 20px;
+    }
+  }
+}
