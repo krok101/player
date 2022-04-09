@@ -1,11 +1,12 @@
 .controls {
   display: flex;
   justify-content: end;
-  background: rgba(255, 255, 255, .05);
+  background: rgba(0, 0, 0, .5);
   position: relative;
-  margin-top: -40px;
-  opacity: 0.3;
+  margin-top: -114px;
+  opacity: 0.1;
   padding: 5px;
+  transition: .5s;
 
   &:hover {
     opacity: 1;
@@ -19,15 +20,19 @@
   .theaterMode {
     margin-right: 20px;
     margin-left: 5px;
+
+  }
+  .offWideMode {
+    padding: 4xp;
   }
 
   .icon {
-    opacity: .35;
+    opacity: 1;
     cursor: pointer;
     padding: 3px;
 
     &:hover {
-      background-color: rgba(#aaa, 0.5);
+      background-color: rgba(#aaa, 0.4);
       border-radius: 20px;
     }
   }

@@ -1,1 +1,2 @@
 export const SET_PLAYER_LIST = 'SET_PLAYER_LIST';
+export const SET_CONFIG_VIDEO = 'SET_CONFIG_VIDEO';

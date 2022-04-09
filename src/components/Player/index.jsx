@@ -1,26 +1,57 @@
 import { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import Controls from "./components/Controls";
 import style from './style.module.scss';
 
 const Player = () => {
-  const [videoWidth, setVideoWidth] = useState('40%')
+  const [isPlay, setIsPlay] = useState(false);
+  const [isFullscreen, setFullscreen] = useState(false)
+  const [theaterMode, setTheaterMode] = useState(false);
+  const configVideo = useSelector(state => state.configVideo)
 
   const video = useRef(null)
 
-  const setTheaterMode = () => setVideoWidth(videoWidth === '40%' ? '100%': '40%')
+  if (configVideo.src) {
+    if (video.current.getAttribute('src') !== configVideo.src) {
+      video.current.setAttribute('src', configVideo.src);
+      video.current.setAttribute('autoplay', 'autoplay');
+      // обработка окончания видео
+      video.current.addEventListener('ended', (event) => {
+        setIsPlay(false);
+      });
+      setIsPlay(true);
+    }
+  }
+
+  const clickOnPlayPause = () => {
+    if (isPlay) {
+      video.current.pause();
+    } else {
+      video.current.play();
+    }
+    setIsPlay(!isPlay)
+  }
+
+  const clickOnTheaterMode = () => {
+    setTheaterMode(!theaterMode)
+  }
+
+  const clickOnFullScreen = () => {
+    video.current.requestFullscreen();
+    setFullscreen(!isFullscreen)
+  }
+
 
   return (
-    <div className={style.player}> 
-      <video ref={video} width='100%'>
-        <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4' />
-        <source id='webm' src="http://media.w3.org/2010/05/sintel/trailer.webm" type='video/webm' />
-        <source id='ogv' src="http://media.w3.org/2010/05/sintel/trailer.ogv" type='video/ogg' />
-        <track kind="subtitles" label="English subtitles" src="subtitles_en.vtt" srcLang="en" default></track>
-        <track kind="subtitles" label="Deutsche Untertitel" src="subtitles_de.vtt" srcLang="de"></track>
-      </video>
+    <div className={`${style.player} ${theaterMode ? style.theaterMode: null}`}> 
+      <div className={style.videoContainer}>
+        <video ref={video} width='100%'></video>
+        <h2 className={style.videoLabel}>{configVideo.name}</h2>
+      </div>
       <Controls
-        video={video}
-        setTheaterMode={setTheaterMode}
+        dataPlay = {{state: isPlay, action: clickOnPlayPause}}
+        dataFullscreen = {{state: isFullscreen, action: clickOnFullScreen}}
+        dataTheaterMode = {{state: theaterMode, action: clickOnTheaterMode}}
       />
     </div>
   )
