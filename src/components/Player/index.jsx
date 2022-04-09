@@ -15,10 +15,6 @@ const Player = () => {
     if (video.current.getAttribute('src') !== configVideo.src) {
       video.current.setAttribute('src', configVideo.src);
       video.current.setAttribute('autoplay', 'autoplay');
-      // обработка окончания видео
-      video.current.addEventListener('ended', () => {
-        setIsPlay(false);
-      });
       setIsPlay(true);
     }
   }
@@ -41,10 +37,14 @@ const Player = () => {
     setFullscreen(!isFullscreen);
   };
 
+  const onEndedVideo = () => {
+    setIsPlay(false);
+  }
+
   return (
     <div className={`${style.player} ${theaterMode ? style.theaterMode: null}`}> 
       <div className={style.videoContainer}>
-        <video ref={video} width='100%'></video>
+        <video ref={video} width='100%' onEnded={onEndedVideo}></video>
         <h2 className={style.videoLabel}>{configVideo.name}</h2>
       </div>
       <Controls

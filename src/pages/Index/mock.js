@@ -1,6 +1,6 @@
 const data = [
   {
-    name: 'муль',
+    name: 'мультфильм',
     src:"https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164",
     previewImgSrc: 'https://i.ytimg.com/vi/qk1nnAHI1mI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC8xwXFpFmOxz8EXJsIAepc2WOdag',
   },
