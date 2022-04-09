@@ -1,28 +1,26 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useCallback } from 'react';
-import { setValue } from '../../store/actions';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {setPlayerList} from '../../store/actions';
+import { Player, PlayList } from '../../components';
+import style from './style.module.scss';
+import data from './mock';
 
 const Index = () => {
-  const value = useSelector((state) => state.value)
   const dispatch = useDispatch();
 
-  const increment = useCallback(() => {
-    dispatch(setValue(value + 1));
-  }, [dispatch, value]);
-
-  const decrement = useCallback(() => {
-    dispatch(setValue(value - 1));
-  }, [dispatch, value]);
-
+  useEffect(() => {
+    // запрос к данным плеера
+    setTimeout(() => {
+      dispatch(setPlayerList(data))
+    }, 1000);
+  });
 
   return (
-    <>
-      <div>{value}</div>
-      <button onClick={increment}>increment</button>
-      <button onClick={decrement}>decrement</button>
-    </>
+    <div className={style.container}>
+      <Player/>
+      <PlayList/>
+    </div>
+  );
+};
 
-  )
-}
-
-export default Index
+export default Index;

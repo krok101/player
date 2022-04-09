@@ -1,14 +1,16 @@
-import { SET_VALUE } from "./actionCreators";
+import { SET_PLAYER_LIST, SET_CONFIG_VIDEO } from "./actionCreators";
 
 const initialState = {
-  value: 10,
-}
+  playerList: [],
+  configVideo: {},
+};
 
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
-      case SET_VALUE: return { ...state, value: action.payload }
-      default: return state;
+    case SET_PLAYER_LIST: return { ...state, playerList: action.payload };
+    case SET_CONFIG_VIDEO: return { ...state, configVideo: action.payload};
+    default: return state;
   }
-}
+};
 
 export default rootReducer;
