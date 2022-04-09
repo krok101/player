@@ -1,39 +1,55 @@
-.controls {
-  display: flex;
-  justify-content: end;
-  background: rgba(0, 0, 0, .5);
-  position: relative;
-  margin-top: -114px;
+.container {
   opacity: 0.1;
-  padding: 5px;
   transition: .5s;
 
   &:hover {
     opacity: 1;
   }
 
-  .play {
-    margin-right: auto;
-    margin-left: 20px;
+  .controls {
+    display: flex;
+    justify-content: end;
+    background: rgba(0, 0, 0, .5);
+    position: relative;
+    padding: 5px;
+  
+    .play {
+      margin-right: auto;
+      margin-left: 20px;
+    }
+  
+    .theaterMode {
+      margin-right: 20px;
+      margin-left: 5px;
+  
+    }
+    .offWideMode {
+      padding: 4xp;
+    }
+  
+    .icon {
+      opacity: 1;
+      cursor: pointer;
+      padding: 3px;
+  
+      &:hover {
+        background-color: rgba(#aaa, 0.4);
+        border-radius: 20px;
+      }
+    }
   }
+  
+  .progressBar {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color: rgba(#aaa, 0.4);
+    margin-top: -118px;
 
-  .theaterMode {
-    margin-right: 20px;
-    margin-left: 5px;
-
-  }
-  .offWideMode {
-    padding: 4xp;
-  }
-
-  .icon {
-    opacity: 1;
-    cursor: pointer;
-    padding: 3px;
-
-    &:hover {
-      background-color: rgba(#aaa, 0.4);
-      border-radius: 20px;
+    .progress{
+      height: 4px;
+      background-color: rgba(rgb(223, 61, 61), 0.9  );
+      position: relative;
     }
   }
 }
