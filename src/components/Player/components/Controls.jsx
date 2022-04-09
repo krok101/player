@@ -1,9 +1,9 @@
-import style from './style.module.scss'
-import PlayIcon from '../../../assets/icons/play.svg'
-import PauseIcon from '../../../assets/icons/pause.svg'
-import fullscreenExit from '../../../assets/icons/fullscreen_exit.svg'
-import Fullscreen from '../../../assets/icons/fullscreen.svg'
-import WidthWide from '../../../assets/icons/width_wide.svg'
+import style from './style.module.scss';
+import PlayIcon from '../../../assets/icons/play.svg';
+import PauseIcon from '../../../assets/icons/pause.svg';
+import fullscreenExit from '../../../assets/icons/fullscreen_exit.svg';
+import Fullscreen from '../../../assets/icons/fullscreen.svg';
+import WidthWide from '../../../assets/icons/width_wide.svg';
 
 const Controls = ({dataPlay, dataTheaterMode, dataFullscreen}) => (
   <div className={style.controls}>
@@ -22,8 +22,6 @@ const Controls = ({dataPlay, dataTheaterMode, dataFullscreen}) => (
       alt='Theater Mode'
     />
   </div>
-)
+);
 
-
-
-export default Controls
+export default Controls;
